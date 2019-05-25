@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -76,9 +77,12 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (containsIgnoreCase(aValue, value)) {
                 jobs.add(row);
             }
+        }
+        if (jobs.isEmpty()) {
+            System.out.println("No results match your search term.");
         }
 
         return jobs;
@@ -124,5 +128,30 @@ public class JobData {
             e.printStackTrace();
         }
     }
+    public static ArrayList<HashMap<String, String>> findByValue(String column) {
 
+        loadData();
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+            for (Map.Entry<String, String> entry : row.entrySet()) {
+                if (containsIgnoreCase(entry.getKey(), column) || containsIgnoreCase(entry.getValue(), column)) {
+                    jobs.add(row);
+                }
+
+            }
+        }
+
+        if (jobs.isEmpty()){
+            System.out.println("No results match your search term.");
+        }
+        return jobs;
+
+
+
+    }
+    public static boolean containsIgnoreCase(String str, String subString) {
+        return str.toLowerCase().contains(subString.toLowerCase());
+    }
 }
