@@ -138,6 +138,7 @@ public class JobData {
             for (Map.Entry<String, String> entry : row.entrySet()) {
                 if (containsIgnoreCase(entry.getKey(), column) || containsIgnoreCase(entry.getValue(), column)) {
                     jobs.add(row);
+                    break;
                 }
 
             }
