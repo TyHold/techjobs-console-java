@@ -58,12 +58,12 @@ public class JobData {
     /**
      * Returns results of search the jobs data by key/value, using
      * inclusion of the search term.
-     *
+     * <p>
      * For example, searching for employer "Enterprise" will include results
      * with "Enterprise Holdings, Inc".
      *
-     * @param column   Column that should be searched.
-     * @param value Value of teh field to search for
+     * @param column Column that should be searched.
+     * @param value  Value of the field to search for
      * @return List of all jobs matching the criteria
      */
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
@@ -128,6 +128,7 @@ public class JobData {
             e.printStackTrace();
         }
     }
+
     public static ArrayList<HashMap<String, String>> findByValue(String column) {
 
         loadData();
@@ -136,7 +137,7 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
             for (Map.Entry<String, String> entry : row.entrySet()) {
-                if (containsIgnoreCase(entry.getKey(), column) || containsIgnoreCase(entry.getValue(), column)) {
+                if (containsIgnoreCase(entry.getValue(), column)) {
                     jobs.add(row);
                     break;
                 }
@@ -144,14 +145,15 @@ public class JobData {
             }
         }
 
-        if (jobs.isEmpty()){
+        if (jobs.isEmpty()) {
             System.out.println("No results match your search term.");
         }
+
         return jobs;
 
 
-
     }
+
     public static boolean containsIgnoreCase(String str, String subString) {
         return str.toLowerCase().contains(subString.toLowerCase());
     }

@@ -1,6 +1,5 @@
 package org.launchcode.techjobs.console;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -12,7 +11,7 @@ public class TechJobs {
 
     private static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -104,7 +103,7 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
@@ -114,7 +113,7 @@ public class TechJobs {
         for (HashMap job : someJobs) {
             System.out.println("\n");
             System.out.println("*****");
-            job.forEach((k,v)->System.out.println(k + ": " + v));
+            job.forEach((k, v) -> System.out.println(k + ": " + v));
             System.out.println("*****");
         }
 
