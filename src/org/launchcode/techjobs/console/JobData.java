@@ -81,9 +81,9 @@ public class JobData {
                 jobs.add(row);
             }
         }
-        if (jobs.isEmpty()) {
+        /*if (jobs.isEmpty()) {
             System.out.println("No results match your search term.");
-        }
+        }*/
 
         return jobs;
     }
@@ -145,9 +145,9 @@ public class JobData {
             }
         }
 
-        if (jobs.isEmpty()) {
+        /*if (jobs.isEmpty()) {
             System.out.println("No results match your search term.");
-        }
+        }*/
 
         return jobs;
 

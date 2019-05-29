@@ -117,6 +117,9 @@ public class TechJobs {
                 return valOne.compareTo(valTwo);
             }
         };
+        if (someJobs.isEmpty()){
+            System.out.print("No results were found.");
+        };
         Collections.sort(someJobs, valComparator);
         for (HashMap job : someJobs) {
             System.out.println("\n");
